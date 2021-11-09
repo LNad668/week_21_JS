@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:required:valid {
+            border-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formElem">
+        <h1>Привет любитель кошек</h1><br>
+        <div>
+            <p>Как зовут твоего любимца?</p>
+            <input type="text" id="cat_name" placeholder="Имя питомца" required />*<br>
+        </div>
+        <div>
+            <p>Представься сам пожалуйста</p>
+            <input type="text" id="name" placeholder="Представтесь" required />*<br>
+        </div>
+        <div>
+            <p>Добавте электронный адрес</p>
+            <input type="email" id="email" placeholder="email" required />*<br>
+        </div>
+        <p>Выбери какой породы твой любимец</p>
+        <select>
+            <option value="first option">Бурманская кошка</option>
+            <option value="first option">Сибирская кошка</option>
+            <option value="first option">Бенгальская кошка</option>
+            <option value="first option">Мейн-Кун</option>
+            <option value="first option">Сиамская кошка</option>
+            <option value="first option">Русская голубая кошка</option>
+            <option value="first option">Донской сфинкс</option>
+            <option value="first option">Японский бобтейл</option>
+            <option value="first option">Просто кошка</option>
+        </select><br>
+
+        <p> Что ест твой любимец (Можно выбпать несколько) </p>
+        <fieldset>
+            <input type="checkbox" name="space" value="1" />
+            сухой корм<br>
+            <input type="checkbox" name="space" value="2" />
+            влажный корм <br>
+            <input type="checkbox" name="space" value="3" />
+            натуральный корм <br>
+        </fieldset>
+        <p> Укажите пол любимца: </p>
+        <input type="radio" name="s" value="m"> Мужской<br>
+        <input type="radio" name="s" value="f"> Женский
+
+        <p>Комментарий владельца</p>
+        <textarea rows="5" cols="20">Оставь свой комментарий</textarea><br>
+        <p>Загрузить фото питомца</p>
+        <input type="file"> <br>
+        <div><button type="submit" id="postButton" onclick="checkAll();">Сохранить</button></div>
+    </form>
+
+
+    <script>
+        postButton.onclick = function (evn) {
+            evn.preventDefault();
+
+            fetch("https://httpbin.org/post", {
+                    method: 'POST',
+                    body: new FormData(formElem)
+                })
+                .then(response => response.json())
+                .then(user => {
+                    console.log(user);
+                })
+                .catch(error => console.log(error));
+        }
+    </script>
+</body>
+
+</html>

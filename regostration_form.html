@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>regostration_form</title>
+    <style>
+        #errorsMessage {
+            color: brown;
+        }
+
+        #fd {
+            text-align: center;
+        }
+
+        input:invalid {
+            outline: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <form novalidate>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">Адрес электронной почты / Email*</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Пароль*</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Адрес</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPhone">Телефон*</label>
+                    <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" required
+                        pattern="/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputState">Состояние</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>активное</option>
+                        <option>не активное</option>
+                        <option>...</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inputChekc"> Проверить данные
+                    </label>
+
+                    <p id="fd">Поля со * обязательны для заполнения</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <div id="errorsMessage"></div>
+                <button type="button" class="btn btn-primary" id="postButton" onclick="checkAll();">Вход</button>
+            </div>
+
+        </div>
+    </form>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="form.js"></script>
+</body>
+
+</html>
